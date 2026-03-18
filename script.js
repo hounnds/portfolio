@@ -516,3 +516,64 @@ document.addEventListener("DOMContentLoaded", () => {
   updateClocks();
   setInterval(updateClocks, 30000);
 });
+
+// ============================================================
+// IMPRESSED POPUP — shows after 40s
+// ============================================================
+function initPopup() {
+  const popup         = document.getElementById("impressedPopup");
+  const close         = document.getElementById("popupClose");
+  const viewProfile   = document.getElementById("popupViewProfile");
+  const overlay       = document.getElementById("profileModalOverlay");
+  const modalClose    = document.getElementById("profileModalClose");
+
+  // Show after 30 seconds
+  setTimeout(() => {
+    popup.classList.add("visible");
+  }, 25000);
+
+  // Close popup on X
+  close.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.remove("visible");
+  });
+
+  // Open profile modal — syncs live data from Lanyard
+  viewProfile.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const modalAvatar   = document.getElementById("modalAvatar");
+    const profileAvatar = document.getElementById("profileAvatar");
+    if (profileAvatar && profileAvatar.src) modalAvatar.src = profileAvatar.src;
+
+    const modalStatus = document.getElementById("modalStatus");
+    const profileDot  = document.getElementById("profileStatusDot");
+    if (profileDot) modalStatus.className = profileDot.className.replace("profile-card__status-dot", "profile-modal__status");
+
+    const modalStatusLabel = document.getElementById("modalStatusLabel");
+    const profileLabel     = document.getElementById("profileStatusLabel");
+    if (profileLabel) modalStatusLabel.innerHTML = profileLabel.innerHTML;
+
+    const modalName   = document.getElementById("modalName");
+    const sidebarName = document.getElementById("sidebarUsername");
+    if (sidebarName) modalName.textContent = sidebarName.textContent;
+
+    const modalTag      = document.getElementById("modalTag");
+    const profileHandle = document.getElementById("profileHandle");
+    if (profileHandle) modalTag.textContent = profileHandle.textContent;
+
+    overlay.classList.add("visible");
+    popup.classList.remove("visible");
+  });
+
+  // Close modal
+  modalClose.addEventListener("click", () => overlay.classList.remove("visible"));
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) overlay.classList.remove("visible");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initPopup();
+});
+
