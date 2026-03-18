@@ -535,7 +535,7 @@ function initPopup() {
         popup.classList.add("visible");
       });
     });
-  }, 30000);
+  }, 25000);
 
   // Close popup on X
   close.addEventListener("click", (e) => {
