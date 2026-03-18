@@ -1388,3 +1388,17 @@ body.entered .cursor-glow { opacity: 1; }
   margin-top: 4px;
 }
 .profile-modal__btn:hover { background: #4752c4; }
+.credits {
+  text-align: center;
+  font-size: 11px;
+  color: var(--dim);
+  padding: 20px 0 4px;
+  letter-spacing: 0.05em;
+}
+.credits .link {
+  color: var(--dim);
+  text-decoration: underline;
+}
+.credits .link:hover {
+  color: var(--muted);
+}
