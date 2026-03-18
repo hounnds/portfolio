@@ -391,6 +391,7 @@ const SERVERS = [
   { inviteCode: "DfP3WvHYwn", iconElId: "iconShogun",        metaElId: "meta-shogun"    },
   { inviteCode: "4aPfnt8mT8", iconElId: "iconGrimoire",      metaElId: "meta-grimoire"  },
   { inviteCode: "ePZfXftYZr", iconElId: "iconBLR",           metaElId: "meta-blr"       },
+  { inviteCode: "pF9Xr2y6YW", iconElId: "iconShinokai", metaElId: "meta-shinokai" },
 ];
 
 async function fetchServerInfo(server) {
